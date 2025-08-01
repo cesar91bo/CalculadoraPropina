@@ -2,6 +2,7 @@ import { useState } from "react"
 import type { MenuItem, OrderItem } from "../types"
 export default function useOrder(){
     const [order, setOrder] = useState<OrderItem[]>([])
+    const [tip, setTip] = useState<number>(0)
 
     const addItem = (item: MenuItem) => {
         //Validar que exista el item en el pedido
@@ -25,8 +26,11 @@ export default function useOrder(){
         //Eliminar un item del pedido
         setOrder(order.filter(item => item.id !== id))
     }
+
     return{
         order,
+        tip,
+        setTip,
         addItem,
         removeItem
     }
