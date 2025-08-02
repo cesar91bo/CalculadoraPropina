@@ -27,11 +27,18 @@ export default function useOrder(){
         setOrder(order.filter(item => item.id !== id))
     }
 
+    const placeOrder = () => {
+        //Reiniciar el pedido y la propina
+        setOrder([])
+        setTip(0)
+    }
+
     return{
         order,
         tip,
         setTip,
         addItem,
-        removeItem
+        removeItem,
+        placeOrder
     }
 }
